@@ -1,66 +1,10 @@
-## Foundry
+## ASSIGNMENT -1 ANSWERS;
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
+## Where are your structs, mappings and arrays stored.
+** Structs, mappings, and arrays are stored in storage when declared as state variables, and in memory or calldata when used as function-local variables (except mappings, which always live in storage).**
 
-Foundry consists of:
+##  How they behave when executed or called.
+**When executed, storage data persists and costs gas to modify, memory data exists only during the function call, calldata is read-only input data, and mappings are accessed by key directly from storage.**
 
-- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
-- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
-- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
-- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
-
-## Documentation
-
-https://book.getfoundry.sh/
-
-## Usage
-
-### Build
-
-```shell
-$ forge build
-```
-
-### Test
-
-```shell
-$ forge test
-```
-
-### Format
-
-```shell
-$ forge fmt
-```
-
-### Gas Snapshots
-
-```shell
-$ forge snapshot
-```
-
-### Anvil
-
-```shell
-$ anvil
-```
-
-### Deploy
-
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
-
-### Cast
-
-```shell
-$ cast <subcommand>
-```
-
-### Help
-
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+##Why don't you need to specify memory or storage with mappings
+**Because mappings are only allowed in storage in Solidity, the compiler automatically assigns them to storage, so specifying `memory` or `storage` is unnecessary and not allowed.**
